@@ -21,6 +21,7 @@ class NotPi:
             self.rects.append((pygame.Rect(posx*self.scale, posy*self.scale, self.scale, self.scale), pixel))
 
             posx += 1
+        self.update()
 
     def update(self):
         for event in pygame.event.get():
