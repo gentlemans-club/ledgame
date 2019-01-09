@@ -2,9 +2,10 @@ import pygame
 import sys
 
 class NotPi:
-    def __init__(self):
+    def __init__(self, scale=16):
+        self.scale = scale
         pygame.init()
-        size = width, height = 8*16, 8*16
+        size = width, height = 8*self.scale, 8*self.scale
         self.screen = pygame.display.set_mode(size)
 
     def set_pixels(self, pixels):
@@ -17,7 +18,7 @@ class NotPi:
             if idx % 8 == 0:
                 posy += 1
 
-            self.rects.append((pygame.Rect(posx*16, posy*16, 16, 16), pixel))
+            self.rects.append((pygame.Rect(posx*self.scale, posy*self.scale, self.scale, self.scale), pixel))
 
             posx += 1
 

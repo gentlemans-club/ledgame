@@ -1,9 +1,9 @@
 import notpi
 
-notpi = notpi.NotPi()
+notpi = notpi.NotPi(scale=100)
 
-w = [255, 255, 255]
-b = [0, 0, 0]
+w = [0xFF, 0xFF, 0xFF]
+b = [0x0, 0x0, 0x0]
 
 pixels = [
     w, w, w, w, w, w, w, w,
@@ -15,7 +15,6 @@ pixels = [
     w, w, w, w, w, w, w, w,
     w, w, b, b, b, b, b, b
 ]
-
 
 while True:
     notpi.set_pixels(pixels)
