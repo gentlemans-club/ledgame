@@ -3,7 +3,7 @@ try:
     sense = SenseHat()
 except ImportError:
     from notpi import NotPi
-    sense = NotPi(scale=100)
+    sense = NotPi(scale=64)
 
 
 w = [0xFF, 0xFF, 0xFF]
@@ -20,5 +20,12 @@ pixels = [
     w, w, b, b, b, b, b, b
 ]
 
+i = 0
+sense.set_pixels(pixels)
+
 while True:
-    sense.set_pixels(pixels)
+    sense.update()
+    if i % 500 == 0:
+        sense.flip_v()
+        i = 0
+    i += 1
