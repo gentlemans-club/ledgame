@@ -1,6 +1,10 @@
-import notpi
+try:
+    from sense_hat import SenseHat
+    sense = SenseHat()
+except ImportError:
+    from notpi import NotPi
+    sense = NotPi(scale=100)
 
-notpi = notpi.NotPi(scale=100)
 
 w = [0xFF, 0xFF, 0xFF]
 b = [0x0, 0x0, 0x0]
@@ -17,5 +21,4 @@ pixels = [
 ]
 
 while True:
-    notpi.set_pixels(pixels)
-    notpi.update()
+    sense.set_pixels(pixels)
