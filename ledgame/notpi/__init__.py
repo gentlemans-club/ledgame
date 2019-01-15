@@ -23,6 +23,12 @@ class NotPi:
             posx += 1
         self.update()
 
+    def flip_v(self, redraw=True):
+        """
+        Flips the image on the canvas vertically.
+        """
+        pass
+
     def update(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT: sys.exit()
