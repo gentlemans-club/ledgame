@@ -5,8 +5,8 @@ class NotPi:
     def __init__(self, scale=16):
         self.scale = scale
         pygame.init()
-        size = width, height = 8*self.scale, 8*self.scale
-        self.screen = pygame.display.set_mode(size)
+        self.size = width, height = 8*self.scale, 8*self.scale
+        self.screen = pygame.display.set_mode(self.size)
 
     def set_pixels(self, pixels):
         self.rects = []
