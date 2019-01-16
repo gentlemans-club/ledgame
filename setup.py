@@ -8,7 +8,7 @@ setup(
     packages=['ledgame'],
     python_requires='>=3.6.0',
     install_requires=[
-        'pygame',
-        'numpy'
-    ]
+        'notpi'
+    ],
+    dependency_links=['git+https://github.com/gentlemans-club/notpi.git@master#egg=notpi-0']
 )

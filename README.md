@@ -4,22 +4,20 @@ THE LABYRINTH OF DOOM
 ## Requirements
 
 * Python 3.6 or newer
-* PyGame
-  * For prototyping on PC
-* numpy
 * Sense HAT library
   * Only required on Raspberry Pi.
+* notpi
 
 ## Installation
 
 Clone the repository. Within the Git repository, run the following:
 ```sh
-pip install .
+pip install --process-dependency-links .
 ```
 
 or for a development setup, run:
 ```sh
-pip install -e .
+pip install -e --process-dependency-links .
 ```
 
 To run the game, simply run:
