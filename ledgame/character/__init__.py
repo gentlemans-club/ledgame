@@ -1,8 +1,8 @@
 class Character:
     def __init__(self):
         self.color = [0x00, 0x00, 0xFF]
-        self.x = 25
-        self.y = 14
+        self.x = 16
+        self.y = 15
         self.gold = 0
 
     def move(self, delta_x, delta_y, world):
@@ -18,4 +18,3 @@ class Character:
         if world.map[self.y][self.x - 1] == [0xFF, 0xD7, 0x00]:
             world.map[self.y][self.x - 1] = [0x0, 0x0, 0x0]
             self.gold += 1
-

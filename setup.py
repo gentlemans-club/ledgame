@@ -8,7 +8,8 @@ setup(
     packages=['ledgame'],
     python_requires='>=3.5.0',
     install_requires=[
-        'notpi'
+        'notpi',
+        'Pillow'
     ],
     dependency_links=['git+https://github.com/gentlemans-club/notpi.git@master#egg=notpi-0']
 )

@@ -13,7 +13,8 @@ w = [0xFF, 0xFF, 0xFF]
 b = [0x0, 0x0, 0x0]
 
 char = Character()
-world = World(path.join(path.dirname(path.abspath(__file__)), "map.txt"))
+world = World(path.join(path.dirname(path.abspath(__file__)), "test.png"))
+
 view = world.view(char)
 sense.set_pixels(view)
 sense.set_pixel(3, 4, char.color)
