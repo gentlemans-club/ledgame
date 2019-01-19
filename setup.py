@@ -6,7 +6,7 @@ setup(
     author='gentlemans-club',
     author_email='kentsd16@student.uia.no',
     packages=['ledgame'],
-    python_requires='>=3.6.0',
+    python_requires='>=3.5.0',
     install_requires=[
         'notpi'
     ],
