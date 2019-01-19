@@ -37,3 +37,5 @@ while True:
         sense.clear()
         sense.show_message("You win!")
         break
+    if type(sense).__name__ == "NotPi":
+        sense.update()
