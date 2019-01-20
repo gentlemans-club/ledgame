@@ -31,7 +31,7 @@ while True:
             elif event.direction == "down":
                 char.move(0, 1, world)
             elif event.direction == "middle":
-                sense.low_light = !sense.low_light
+                sense.low_light = not sense.low_light
             view = world.view(char)
             sense.set_pixels(view)
             sense.set_pixel(3, 4, char.color)
