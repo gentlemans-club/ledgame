@@ -1,8 +1,8 @@
 class Character:
-    def __init__(self):
+    def __init__(self, start_pos):
         self.color = [0x00, 0x00, 0xFF]
-        self.x = 16
-        self.y = 15
+        self.x = start_pos[0] + 9
+        self.y = start_pos[1] + 8
         self.gold = 0
 
     def move(self, delta_x, delta_y, world):

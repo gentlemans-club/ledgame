@@ -12,8 +12,8 @@ from os import path
 w = [0xFF, 0xFF, 0xFF]
 b = [0x0, 0x0, 0x0]
 
-char = Character()
-world = World(path.join(path.dirname(path.abspath(__file__)), "levels", "maze.png"))
+world = World(path.join(path.dirname(path.abspath(__file__)), "levels", "tiny.png"))
+char = Character(world.player_start)
 
 view = world.view(char)
 sense.set_pixels(view)
