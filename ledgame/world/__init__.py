@@ -1,5 +1,6 @@
 from pprint import pprint
 from PIL import Image
+import random
 
 BLACK = [0, 0, 0]
 WHITE = [255, 255, 255]
@@ -10,12 +11,12 @@ class World:
     def __init__(self, mapfile):
         self.map = []
         self.gold = 0
-        self.player_start = (0, 0)
         with Image.open(mapfile) as im:
             pix = im.load()
             width, height = im.size
         pad = 7
         real_width = width + (pad*2)
+        possible_starts = []
 
         # first, pad the top of the map with 7 lines of black
         for p in range(pad):
@@ -39,7 +40,7 @@ class World:
                 if pixel == GOLD:
                     self.gold += 1
                 if pixel == BLUE:
-                    self.player_start = (x, y)
+                    possible_starts.append((x, y))
                     pixel = BLACK
                 mapline.append(pixel)
 
@@ -59,6 +60,8 @@ class World:
             mapline = [BLACK] * real_width
             self.map.append(mapline)
 
+        self.player_start = random.choice(possible_starts)
+        
     def view(self, char):
         subsection = []
         for line in self.map[char.y-4:char.y+4]:

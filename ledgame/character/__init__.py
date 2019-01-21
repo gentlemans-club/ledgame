@@ -18,3 +18,4 @@ class Character:
         if world.map[self.y][self.x - 1] == [0xFF, 0xD7, 0x00]:
             world.map[self.y][self.x - 1] = [0x0, 0x0, 0x0]
             self.gold += 1
+            print("Current gold: {}".format(self.gold))

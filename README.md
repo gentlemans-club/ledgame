@@ -3,7 +3,7 @@ THE LABYRINTH OF DOOM
 
 ## Requirements
 
-* Python 3.6 or newer
+* Python 3.5 or newer
 * Sense HAT library
   * Only required on Raspberry Pi.
 * notpi
@@ -41,5 +41,5 @@ Color |    Hex    | Notes
 ------|-----------|-------
 Black | `#000000` | Represents floor. The player can walk on this.
 White | `#FFFFFF` | Represents walls. The player cannot walk nor pass through this.
-Blue  | `#0000FF` | Represents the player. It is advised to only have a single pixel of this type. In case of several, the last encountered pixel of this type will count as the player. The others will be turned to floor.
+Blue  | `#0000FF` | Represents the player. It is advised to only have a single pixel of this type. In case of several, a random blue pixel will be chosen. The others will be turned to floor.
 Gold  | `#FFD700` | Represents coins or gold. There
