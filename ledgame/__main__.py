@@ -12,7 +12,7 @@ from os import path
 w = [0xFF, 0xFF, 0xFF]
 b = [0x0, 0x0, 0x0]
 
-world = World(path.join(path.dirname(path.abspath(__file__)), "levels", "maze.png"))
+world = World(path.join(path.dirname(path.abspath(__file__)), "levels", "elias.png"))
 char = Character(world.player_start)
 
 print("Total gold in this level: {}".format(world.gold))
