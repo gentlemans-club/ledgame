@@ -5,27 +5,41 @@ except ImportError:
     from notpi import NotPi
     sense = NotPi(scale=64)
 
+from ledgame.character import Character
+from ledgame.world import World
+from os import path
 
 w = [0xFF, 0xFF, 0xFF]
 b = [0x0, 0x0, 0x0]
 
-pixels = [
-    w, w, w, w, w, w, w, w,
-    w, w, w, b, b, w, w, w,
-    w, w, w, b, b, b, b, b,
-    w, w, b, b, b, b, b, b,
-    w, b, b, b, b, b, b, b,
-    b, b, b, b, b, b, b, b,
-    w, w, w, w, w, w, w, w,
-    w, w, b, b, b, b, b, b
-]
+world = World(path.join(path.dirname(path.abspath(__file__)), "levels", "Spiral of fuck you.png"))
+char = Character(world.player_start)
 
-i = 0
-sense.set_pixels(pixels)
+print("Total gold in this level: {}".format(world.gold))
+
+view = world.view(char)
+sense.set_pixels(view)
+sense.set_pixel(3, 4, char.color)
 
 while True:
-    sense.update()
-    if i % 500 == 0:
-        sense.flip_v()
-        i = 0
-    i += 1
+    for event in sense.stick.get_events():
+        if event.action == "pressed":
+            if event.direction == "right":
+                char.move(1, 0, world)
+            elif event.direction == "left":
+                char.move(-1, 0, world)
+            elif event.direction == "up":
+                char.move(0, -1, world)
+            elif event.direction == "down":
+                char.move(0, 1, world)
+            elif event.direction == "middle":
+                sense.low_light = not sense.low_light
+            view = world.view(char)
+            sense.set_pixels(view)
+            sense.set_pixel(3, 4, char.color)
+    if char.gold == world.gold:
+        world = World(path.join(path.dirname(path.abspath(__file__)), "levels", "elias2.png"))
+        char = Character(world.player_start)
+        break
+    if type(sense).__name__ == "NotPi":
+        sense.update()
