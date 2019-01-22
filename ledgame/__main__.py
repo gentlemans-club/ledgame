@@ -12,14 +12,26 @@ from os import path
 w = [0xFF, 0xFF, 0xFF]
 b = [0x0, 0x0, 0x0]
 
-world = World(path.join(path.dirname(path.abspath(__file__)), "levels", "Spiral of fuck you.png"))
-char = Character(world.player_start)
+worlds = ["test.png", "tiny.png", "tiny.png"]
+world_number = 0
 
-print("Total gold in this level: {}".format(world.gold))
+def get_level(filename):
+    return path.join(path.dirname(path.abspath(__file__)), "levels", filename)
 
-view = world.view(char)
-sense.set_pixels(view)
-sense.set_pixel(3, 4, char.color)
+
+def change_level(world_number, char):
+    char.total_gold += char.gold
+    char.gold = 0
+    world = World(get_level(worlds[world_number]))
+    print("Total gold in this level: {}".format(world.gold))
+    char.start(world.player_start)
+    view = world.view(char)
+    sense.set_pixels(view)
+    sense.set_pixel(3, 4, char.color)
+    return world
+
+char = Character()
+world = change_level(world_number, char)
 
 while True:
     for event in sense.stick.get_events():
@@ -38,8 +50,13 @@ while True:
             sense.set_pixels(view)
             sense.set_pixel(3, 4, char.color)
     if char.gold == world.gold:
-        world = World(path.join(path.dirname(path.abspath(__file__)), "levels", "elias2.png"))
-        char = Character(world.player_start)
-        break
+        world_number += 1
+        if world_number < len(worlds):
+            world = change_level(world_number, char)
+        else:
+            char.total_gold += char.gold
+            sense.show_message("You win!")
+            sense.show_message("You earned: {}".format(char.total_gold))
+            break
     if type(sense).__name__ == "NotPi":
         sense.update()

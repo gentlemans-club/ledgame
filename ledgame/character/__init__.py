@@ -1,9 +1,14 @@
 class Character:
-    def __init__(self, start_pos):
+    def __init__(self):
         self.color = [0x00, 0x00, 0xFF]
+        self.x = 0
+        self.y = 0
+        self.gold = 0
+        self.total_gold = 0
+
+    def start(self, start_pos):
         self.x = start_pos[0] + 9
         self.y = start_pos[1] + 8
-        self.gold = 0
 
     def move(self, delta_x, delta_y, world):
         new_x = self.x + delta_x
