@@ -12,7 +12,7 @@ from os import path
 w = [0xFF, 0xFF, 0xFF]
 b = [0x0, 0x0, 0x0]
 
-world = World(path.join(path.dirname(path.abspath(__file__)), "levels", "elias.png"))
+world = World(path.join(path.dirname(path.abspath(__file__)), "levels", "spiral of fuck you.png"))
 char = Character(world.player_start)
 
 print("Total gold in this level: {}".format(world.gold))
@@ -38,8 +38,8 @@ while True:
             sense.set_pixels(view)
             sense.set_pixel(3, 4, char.color)
     if char.gold == world.gold:
-        sense.clear()
-        sense.show_message("You win!")
+        world = World(path.join(path.dirname(path.abspath(__file__)), "levels", "elias2.png"))
+        char = Character(world.player_start)
         break
     if type(sense).__name__ == "NotPi":
         sense.update()
