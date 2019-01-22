@@ -23,20 +23,46 @@ sense.set_pixel(3, 4, char.color)
 
 while True:
     for event in sense.stick.get_events():
-        if event.action == "pressed":
+        if event.action == 'pressed':
             if event.direction == "right":
-                char.move(1, 0, world)
+                char.moving_right = True
             elif event.direction == "left":
-                char.move(-1, 0, world)
+                char.moving_left = True
             elif event.direction == "up":
-                char.move(0, -1, world)
+                char.moving_up = True
             elif event.direction == "down":
-                char.move(0, 1, world)
+                char.moving_down = True
             elif event.direction == "middle":
                 sense.low_light = not sense.low_light
-            view = world.view(char)
-            sense.set_pixels(view)
-            sense.set_pixel(3, 4, char.color)
+        if event.action == 'released':
+            if event.direction == "right":
+                char.moving_right = False
+            elif event.direction == "left":
+                char.moving_left = False
+            elif event.direction == "up":
+                char.moving_up = False
+            elif event.direction == "down":
+                char.moving_down = False
+    if char.moving_right:
+        char.move(1, 0, world)
+        view = world.view(char)
+        sense.set_pixels(view)
+        sense.set_pixel(3, 4, char.color)
+    if char.moving_left:
+        char.move(-1, 0, world)
+        view = world.view(char)
+        sense.set_pixels(view)
+        sense.set_pixel(3, 4, char.color)
+    if char.moving_down:
+        char.move(0, 1, world)
+        view = world.view(char)
+        sense.set_pixels(view)
+        sense.set_pixel(3, 4, char.color)
+    if char.moving_up:
+        char.move(0, -1, world)
+        view = world.view(char)
+        sense.set_pixels(view)
+        sense.set_pixel(3, 4, char.color)
     if char.gold == world.gold:
         world = World(path.join(path.dirname(path.abspath(__file__)), "levels", "elias2.png"))
         char = Character(world.player_start)
