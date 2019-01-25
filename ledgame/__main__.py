@@ -21,10 +21,10 @@ def get_level(filename):
     return path.join(path.dirname(path.abspath(__file__)), "levels", filename)
 
 def animate_load():
-    loading_files = ["snegle1.png", "snegle2.png", "snegle3.png", "snegle4.png"]
+    loading_files = ["loading{}.png".format(x) for x in range(1,24)]
     for file in loading_files:
         sense.load_image(path.join(path.dirname(path.abspath(__file__)), "assets", file))
-        time.sleep(0.25)
+        time.sleep(0.03)
 
 def change_level(world_number, char):
     animate_load()
