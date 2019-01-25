@@ -9,6 +9,11 @@ class Character:
     def start(self, start_pos):
         self.x = start_pos[0] + 9
         self.y = start_pos[1] + 8
+        self.moving_left = False
+        self.moving_right = False
+        self.moving_down = False
+        self.moving_up = False
+        self.gold = 0
 
     def move(self, delta_x, delta_y, world):
         new_x = self.x + delta_x
