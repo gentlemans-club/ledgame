@@ -13,8 +13,6 @@ import time
 w = [0xFF, 0xFF, 0xFF]
 b = [0x0, 0x0, 0x0]
 
-world = World(path.join(path.dirname(path.abspath(__file__)), "levels", "Spiral of fuck you.png"))
-char = Character(world.player_start)
 last_moved = time.time()
 worlds = ["test.png", "tiny.png", "tiny.png"]
 world_number = 0
@@ -22,8 +20,14 @@ world_number = 0
 def get_level(filename):
     return path.join(path.dirname(path.abspath(__file__)), "levels", filename)
 
+def animate_load():
+    loading_files = ["snegle1.png", "snegle2.png", "snegle3.png", "snegle4.png"]
+    for file in loading_files:
+        sense.show_image(path.join(path.dirname(path.abspath(__file__)), "assets", file))
+        time.sleep(0.25)
 
 def change_level(world_number, char):
+    animate_load()
     char.total_gold += char.gold
     char.gold = 0
     world = World(get_level(worlds[world_number]))
