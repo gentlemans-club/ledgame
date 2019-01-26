@@ -42,4 +42,4 @@ Color |    Hex    | Notes
 Black | `#000000` | Represents floor. The player can walk on this.
 White | `#FFFFFF` | Represents walls. The player cannot walk nor pass through this.
 Blue  | `#0000FF` | Represents the player. It is advised to only have a single pixel of this type. In case of several, a random blue pixel will be chosen. The others will be turned to floor.
-Gold  | `#FFD700` | Represents coins or gold. There
+Gold  | `#FFD700` | Represents coins or gold. There must be at least one gold pixel in the level, as the completion criteria is for the player to pick up every coin in the level.
