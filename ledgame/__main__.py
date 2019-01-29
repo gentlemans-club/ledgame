@@ -38,79 +38,33 @@ def change_level(world_number, char):
     sense.set_pixel(3, 4, char.color)
     return world
 
+def draw(char):
+    view = world.view(char)
+    sense.set_pixels(view)
+    sense.set_pixel(3, 4, char.color)
+
 char = Character()
 world = change_level(world_number, char)
 
 while True:
     for event in sense.stick.get_events():
         if event.action == 'pressed':
-            if event.direction == "right":
-                char.move(1, 0, world)
-                view = world.view(char)
-                sense.set_pixels(view)
-                sense.set_pixel(3, 4, char.color)
+            if event.direction in ["right", "left", "up", "down"]:
+                char.move(event.direction, world)
                 last_moved = time.time()
-                char.moving_right = True
-            elif event.direction == "left":
-                char.move(-1, 0, world)
-                view = world.view(char)
-                sense.set_pixels(view)
-                sense.set_pixel(3, 4, char.color)
-                last_moved = time.time()
-                char.moving_left = True
-            elif event.direction == "up":
-                char.move(0, -1, world)
-                view = world.view(char)
-                sense.set_pixels(view)
-                sense.set_pixel(3, 4, char.color)
-                last_moved = time.time()
-                char.moving_up = True
-            elif event.direction == "down":
-                char.move(0, 1, world)
-                view = world.view(char)
-                sense.set_pixels(view)
-                sense.set_pixel(3, 4, char.color)
-                last_moved = time.time()
-                char.moving_down = True
+                char.moving[event.direction] = True
+                draw(char)
             elif event.direction == "middle":
                 sense.low_light = not sense.low_light
         if event.action == 'released':
-            if event.direction == "right":
-                char.moving_right = False
-            elif event.direction == "left":
-                char.moving_left = False
-            elif event.direction == "up":
-                char.moving_up = False
-            elif event.direction == "down":
-                char.moving_down = False
-    if char.moving_right:
-        if time.time() - last_moved > 0.15:
-            char.move(1, 0, world)
-            view = world.view(char)
-            sense.set_pixels(view)
-            sense.set_pixel(3, 4, char.color)
-            last_moved = time.time()
-    if char.moving_left:
-        if time.time() - last_moved > 0.15:
-            char.move(-1, 0, world)
-            view = world.view(char)
-            sense.set_pixels(view)
-            sense.set_pixel(3, 4, char.color)
-            last_moved = time.time()
-    if char.moving_down:
-        if time.time() - last_moved > 0.15:
-            char.move(0, 1, world)
-            view = world.view(char)
-            sense.set_pixels(view)
-            sense.set_pixel(3, 4, char.color)
-            last_moved = time.time()
-    if char.moving_up:
-        if time.time() - last_moved > 0.15:
-            char.move(0, -1, world)
-            view = world.view(char)
-            sense.set_pixels(view)
-            sense.set_pixel(3, 4, char.color)
-            last_moved = time.time()
+            if event.direction in ["right", "left", "up", "down"]:
+                char.moving[event.direction] = False
+    if any(list(char.moving.values())):
+        for direction, value in char.moving.items():
+            if value and time.time() - last_moved > 0.15:
+                char.move(direction, world)
+                last_moved = time.time()
+                draw(char)
     if char.gold == world.gold:
         world_number += 1
         if world_number < len(worlds):

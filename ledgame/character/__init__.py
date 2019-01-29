@@ -9,13 +9,26 @@ class Character:
     def start(self, start_pos):
         self.x = start_pos[0] + 9
         self.y = start_pos[1] + 8
-        self.moving_left = False
-        self.moving_right = False
-        self.moving_down = False
-        self.moving_up = False
+        self.moving = {
+            "left": False,
+            "right": False,
+            "down": False,
+            "up": False
+        }
         self.gold = 0
 
-    def move(self, delta_x, delta_y, world):
+    def move(self, direction, world):
+        delta_x = 0
+        delta_y = 0
+        if direction == "right":
+            delta_x = 1
+        elif direction == "left":
+            delta_x = -1
+        elif direction == "up":
+            delta_y = -1
+        elif direction == "down":
+            delta_y = 1
+            
         new_x = self.x + delta_x
         new_y = self.y + delta_y
 
