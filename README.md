@@ -37,10 +37,15 @@ The image format should be PNG with an RGBA format. Examples can be found in the
 
 The pixel can have one of four colors:
 
-Color |    Hex    | Notes
+Type |    Hex    | Notes
 ------|-----------|-------
-Black | `#000000` | Represents floor. The player can walk on this.
-White | `#FFFFFF` | Represents walls. The player cannot walk nor pass through this.
-Blue  | `#0000FF` | Represents the player. It is advised to only have a single pixel of this type. In case of several, a random blue pixel will be chosen. The others will be turned to floor.
-Gold  | `#FFD700` | Represents coins or gold. There must be at least one gold pixel in the level, as the completion criteria is for the player to pick up every coin in the level.
-Gray | `#555555` | Represents a box which can be moved by the player. Boxes cannot move into other objects such as walls or gold.
+Floor | `#000000` | The player can walk on this.
+Wall | `#FFFFFF` | The player cannot walk nor pass through this.
+Player  | `#0000FF` | It is advised to only have a single pixel of this type. In case of several, a random blue pixel will be chosen. The others will be turned to floor.
+Gold  | `#FFD700` |There must be at least one gold pixel in the level, as the completion criteria is for the player to pick up every coin in the level.
+Box | `#555555` | Can be moved by the player. Boxes cannot move into other objects such as walls, gold, or other boxes.
+Key | `#00AA00` | Can be picked up by the player. Unlocks doors, which also consumes the key.
+Door | `#C400C4`  | Can be unlocked by a player with a key. Acts like a wall if the player has no keys.
+Teleport 1 | `#FF0000` | Teleports to another cell of type teleport 1. If three or more teleports of the same type is present, the teleport sends the player in a cycle through all of them.
+Teleport 2 | `#A05000` | Teleports to another cell of type teleport 2.
+Teleport 3 | `#00FFFF` | Teleports to another cell of type teleport 3.
