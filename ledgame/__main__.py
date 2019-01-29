@@ -11,7 +11,7 @@ from os import path
 import time
 
 last_moved = time.time()
-worlds = ["pokepuzzle.png", "tiny.png", "elias.png"]
+worlds = ["teleporttest.png", "tiny.png", "elias.png"]
 world_number = 0
 
 def get_level(filename):
