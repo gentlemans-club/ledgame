@@ -1,4 +1,4 @@
-from ledgame import BLACK, WHITE, GOLD
+from ledgame import BLACK, WHITE, GOLD, GRAY
 
 class Character:
     def __init__(self):
@@ -45,6 +45,18 @@ class Character:
 
         if world.map[new_y][new_x - 1] == WHITE:
             return False
+
+        if world.map[new_y][new_x - 1] == GRAY:
+            box_y = new_y + delta_y
+            box_x = new_x + delta_x
+            if world.map[box_y][box_x - 1] == BLACK:
+                world.map[box_y][box_x - 1] = GRAY
+                world.map[new_y][new_x - 1] = BLACK
+                self.x = new_x
+                self.y = new_y
+                return True
+            else:
+                return False
 
         self.x = new_x
         self.y = new_y
