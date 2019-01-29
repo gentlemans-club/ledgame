@@ -1,4 +1,4 @@
-from ledgame import BLACK, WHITE, GOLD, GRAY, BROWN, RED, CYAN
+from ledgame import BLACK, WHITE, GOLD, GRAY, GREEN, PURPLE, BROWN, RED, CYAN
 
 class Character:
     def __init__(self):
@@ -22,6 +22,7 @@ class Character:
         self.x = start_pos[0] + 9
         self.y = start_pos[1] + 8
         self.gold = 0
+        self.key = 0
 
     def move(self, direction, world):
         """
@@ -57,11 +58,23 @@ class Character:
                 return True
             else:
                 return False
+        elif world.map[new_y][new_x - 1] == PURPLE:
+            if self.key > 0:
+                world.map[new_y][new_x - 1] = BLACK
+                self.key -= 1
+                print("You unlocked the door!")
+            else:
+                return False
+
 
         self.x = new_x
         self.y = new_y
 
-        if world.map[self.y][self.x - 1] == GOLD:
+        if world.map[self.y][self.x -1] == GREEN:
+            world.map[self.y][self.x - 1] = BLACK
+            self.key += 1
+            print("You got the key! Find the door.")
+        elif world.map[self.y][self.x - 1] == GOLD:
             world.map[self.y][self.x - 1] = BLACK
             self.gold += 1
             print("Current gold: {}".format(self.gold))
