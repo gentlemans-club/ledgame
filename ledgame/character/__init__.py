@@ -61,6 +61,7 @@ class Character:
         elif world.map[new_y][new_x - 1] == PURPLE:
             if self.key > 0:
                 world.map[new_y][new_x - 1] = BLACK
+                self.key -= 1
                 print("You unlocked the door!")
             else:
                 return False
