@@ -1,11 +1,8 @@
+from ledgame import BLACK, WHITE, GOLD, BLUE
 from pprint import pprint
 from PIL import Image
 import random
 
-BLACK = [0, 0, 0]
-WHITE = [255, 255, 255]
-GOLD = [0xFF, 0xD7, 0x00]
-BLUE = [0x00, 0x00, 0xFF]
 
 class World:
     def __init__(self, mapfile):
@@ -61,8 +58,11 @@ class World:
             self.map.append(mapline)
 
         self.player_start = random.choice(possible_starts)
-        
+
     def view(self, char):
+        """
+        Creates a subsection of the map, centered around the character object.
+        """
         subsection = []
         for line in self.map[char.y-4:char.y+4]:
             subsection += line[char.x-4:char.x+4]
