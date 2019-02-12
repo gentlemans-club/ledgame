@@ -29,12 +29,14 @@ def animate_load():
         sense.load_image(path.join(path.dirname(path.abspath(__file__)), "assets", file))
         time.sleep(0.03)
 
-def change_level(world_number, char):
+def set_level(world_number, char): # used for changing to a new level and reloading level
     """
     Changes the level and soft-resets the character state.
 
     The total gold collected is stored, while current gold is reset.
     The character's position is also set to the new world's start position.
+
+    If not all the gold is collected the world will reset when "middle" is held for longer then 3 seconds.
     """
     animate_load()
     char.total_gold += char.gold
@@ -52,8 +54,11 @@ def draw(char):
     sense.set_pixel(3, 4, char.color)
 
 char = Character()
-world = change_level(world_number, char)
+world = set_level(world_number, char)
 draw(char)
+
+reset_timer = time.time() # variable that keeps track of when "middle" was pressed
+reset_held = False # variable to keep track if "middle" is held
 
 while True:
     for event in sense.stick.get_events():
@@ -64,10 +69,18 @@ while True:
                     char.moving[event.direction] = True
                     draw(char)
             elif event.direction == "middle":
+                reset_timer = time.time() #start counting
+                reset_held = True
                 sense.low_light = not sense.low_light
         if event.action == 'released':
             if event.direction in ["right", "left", "up", "down"]:
                 char.moving[event.direction] = False
+            elif event.direction == "middle":
+                reset_held = False
+    if reset_held and time.time() - reset_timer > 3: # released after 3 seconds
+                world = set_level(world_number, char)
+                print("Level has been reloaled")
+                draw(char)
     if any(list(char.moving.values())):
         for direction, value in char.moving.items():
             if value and time.time() - last_moved > 0.15:
@@ -77,7 +90,7 @@ while True:
     if char.gold == world.gold:
         world_number += 1
         if world_number < len(worlds):
-            world = change_level(world_number, char)
+            world = set_level(world_number, char)
             draw(char)
         else:
             char.total_gold += char.gold
