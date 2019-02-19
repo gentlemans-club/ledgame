@@ -1,4 +1,4 @@
-from ledgame import BLACK, WHITE, GOLD, BLUE, BROWN, CYAN, RED
+from ledgame import BLACK, WHITE, GOLD, BLUE, BROWN, RED
 from pprint import pprint
 from PIL import Image
 import random
@@ -9,8 +9,7 @@ class World:
         self.map = []
         self.portals = {
             "red": [],
-            "brown": [],
-            "cyan": []
+            "brown": []
         }
         self.gold = 0
         with Image.open(mapfile) as im:
@@ -46,8 +45,6 @@ class World:
                     pixel = BLACK
                 if pixel == BROWN:
                     self.portals["brown"].append((x + 8, y + 8))
-                if pixel == CYAN:
-                    self.portals["cyan"].append((x + 8, y + 8))
                 if pixel == RED:
                     self.portals["red"].append((x + 8, y + 8))
                 mapline.append(pixel)
