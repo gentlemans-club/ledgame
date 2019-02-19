@@ -73,12 +73,5 @@ class Character:
             self.x = next_portal[0] + 1
             self.y = next_portal[1]
 
-        if world.map[self.y][self.x - 1] == RED:
-            print(world.portals["red"])
-            idx = world.portals["red"].index((self.x - 1, self.y))
-            next_portal = world.portals["red"][(idx + 1) % len(world.portals["red"])]
-            self.x = next_portal[0] + 1
-            self.y = next_portal[1]
-
 
         return True

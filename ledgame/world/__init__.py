@@ -8,7 +8,6 @@ class World:
     def __init__(self, mapfile):
         self.map = []
         self.portals = {
-            "red": [],
             "brown": []
         }
         self.gold = 0
@@ -45,8 +44,6 @@ class World:
                     pixel = BLACK
                 if pixel == BROWN:
                     self.portals["brown"].append((x + 8, y + 8))
-                if pixel == RED:
-                    self.portals["red"].append((x + 8, y + 8))
                 mapline.append(pixel)
 
             # create an outer wall
