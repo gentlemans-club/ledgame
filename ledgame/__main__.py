@@ -77,7 +77,7 @@ while True:
                 char.moving[event.direction] = False
             elif event.direction == "middle":
                 reset_held = False
-    if reset_held and time.time() - reset_timer > 3: # released after 3 seconds
+    if reset_held and time.time() - reset_timer > 1.5: # released after 1.5 seconds
                 world = set_level(world_number, char)
                 print("Level has been reloaled")
                 draw(char)
