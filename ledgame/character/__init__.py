@@ -1,4 +1,4 @@
-from ledgame import BLACK, WHITE, GOLD, GRAY, GREEN, PURPLE, BROWN, RED, CYAN
+from ledgame import BLACK, WHITE, GOLD, GRAY, GREEN, PURPLE, BROWN, RED
 
 class Character:
     def __init__(self):
@@ -86,18 +86,5 @@ class Character:
             self.x = next_portal[0] + 1
             self.y = next_portal[1]
 
-        if world.map[self.y][self.x - 1] == RED:
-            print(world.portals["red"])
-            idx = world.portals["red"].index((self.x - 1, self.y))
-            next_portal = world.portals["red"][(idx + 1) % len(world.portals["red"])]
-            self.x = next_portal[0] + 1
-            self.y = next_portal[1]
-
-        if world.map[self.y][self.x - 1] == CYAN:
-            print(world.portals["cyan"])
-            idx = world.portals["cyan"].index((self.x - 1, self.y))
-            next_portal = world.portals["cyan"][(idx + 1) % len(world.portals["cyan"])]
-            self.x = next_portal[0] + 1
-            self.y = next_portal[1]
 
         return True
