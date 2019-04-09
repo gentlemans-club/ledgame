@@ -80,6 +80,7 @@ while True:
             elif event.direction == "middle":
                 reset_held = False
     if reset_held and time.time() - reset_timer > 1.5: # released after 1.5 seconds
+                char.gold = 0
                 world = set_level(world_number, char)
                 print("Level has been reloaded")
                 draw(char)
