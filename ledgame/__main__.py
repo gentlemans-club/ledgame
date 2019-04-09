@@ -7,18 +7,20 @@ except ImportError:
 
 from ledgame.character import Character
 from ledgame.world import World
-from os import path
+from os import path, listdir
 import time
 
 last_moved = time.time()
-worlds = ["elias.png", "pokepuzzle.png", "laby.png"]
+basepath = path.dirname(path.abspath(__file__))
+enabled_levels = path.join(basepath, "levels", "enabled")
+worlds = [file for file in listdir(enabled_levels) if path.isfile(path.join(enabled_levels, file))]
 world_number = 0
 
 def get_level(filename):
     """
     A simple helper function which builds an absolute path to a level filename.
     """
-    return path.join(path.dirname(path.abspath(__file__)), "levels", filename)
+    return path.join(enabled_levels, filename)
 
 def animate_load():
     """
