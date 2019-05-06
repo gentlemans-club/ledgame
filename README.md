@@ -12,10 +12,12 @@ Have a look at our [wiki](https://github.com/gentlemans-club/ledgame/wiki) for i
 * [Phuong Ha Pham](https://github.com/fongha)
 
 **Included repositories**
+> The main repository for use with the Raspberry Pi
 * [ledgame](https://github.com/gentlemans-club/ledgame)
-> Main repository for use with the Raspberry Pi
-* [notpi](https://github.com/gentlemans-club/notpi) 
+
 > Secondary repository for use on platforms such as MacOS, Windows & Linux
+* [notpi](https://github.com/gentlemans-club/notpi) 
+
 
 ----
 
