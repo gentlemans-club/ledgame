@@ -1,5 +1,5 @@
 # ledgame
-*This is an open source project part for the course IS-213, which is a course given on the University of Agder in Norway.* 
+*This is an open source project part of the course IS-213, which is a course given on the University of Agder in Norway.* 
 
 ### THE LABYRINTH OF DOOM
 
