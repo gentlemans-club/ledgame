@@ -1,5 +1,5 @@
 # ledgame
-**THE LABYRINTH OF DOOM
+**THE LABYRINTH OF DOOM**
 
 Have a look at our [wiki](https://github.com/gentlemans-club/ledgame/wiki) for information about creating or editing levels.
 
