@@ -3,6 +3,16 @@ THE LABYRINTH OF DOOM
 
 Have a look at our [wiki](https://github.com/gentlemans-club/ledgame/wiki) for information about creating or editing levels.
 
+**Developers:**
+
+* [Elias Kløverød Brynestad](https://github.com/KodeGeniElias)
+* [Kent Daleng](https://github.com/chinatsu)
+* [Julie Hodne Gundersen](https://github.com/Juliehg)
+* [Yaguel van der Meij](https://github.com/Yagooza)
+* [Phuong Ha Pham](https://github.com/fongha)
+
+ ----
+
 ## Requirements
 
 * Python 3.5 or newer
@@ -30,3 +40,4 @@ This way, you will have editable installations of both notpi and ledgame install
 
 * Note: On Mac, you may have to switch out `pip`/`python` commands with
 `pip3`/`python3` respectively.
+
