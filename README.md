@@ -17,6 +17,7 @@ Have a look at our [wiki](https://github.com/gentlemans-club/ledgame/wiki) for i
 * [notpi](https://github.com/gentlemans-club/notpi) 
 > Secondary repository for use on platforms such as MacOS, Windows & Linux
 
+----
 
 ## Requirements
 
