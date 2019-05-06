@@ -22,6 +22,9 @@ Have a look at our [wiki](https://github.com/gentlemans-club/ledgame/wiki) for i
 
 ----
 
+*This project is an open source project part for the course IS-213, which is a course given on the University of Agder in Norway.* 
+
+
 ## Requirements
 
 * Python 3.5 or newer
