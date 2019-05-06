@@ -11,7 +11,6 @@ Have a look at our [wiki](https://github.com/gentlemans-club/ledgame/wiki) for i
 * [Yaguel van der Meij](https://github.com/Yagooza)
 * [Phuong Ha Pham](https://github.com/fongha)
 
- ----
 
 ## Requirements
 
