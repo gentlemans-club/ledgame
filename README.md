@@ -13,9 +13,9 @@ Have a look at our [wiki](https://github.com/gentlemans-club/ledgame/wiki) for i
 
 **Included repositories**
 * [ledgame](https://github.com/gentlemans-club/ledgame)
- * Main repository for use with the Raspberry Pi
+> Main repository for use with the Raspberry Pi
 * [notpi](https://github.com/gentlemans-club/notpi) 
- * Secondary repository for use on platforms such as MacOS, Windows & Linux
+> Secondary repository for use on platforms such as MacOS, Windows & Linux
 
 
 ## Requirements
