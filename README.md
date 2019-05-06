@@ -1,7 +1,7 @@
 # ledgame
 *This project is an open source project part for the course IS-213, which is a course given on the University of Agder in Norway.* 
 
-**THE LABYRINTH OF DOOM**
+### THE LABYRINTH OF DOOM
 
 Have a look at our [wiki](https://github.com/gentlemans-club/ledgame/wiki) for information about creating or editing levels.
 
