@@ -24,6 +24,15 @@ Have a look at our [wiki](https://github.com/gentlemans-club/ledgame/wiki) for i
 
 ----
 
+## What
+
+Ledgame is a labyrinth game where the player will attempt to navigate through a labyrinth and encounter dangers as well as treasures. The game will make use of various colours to represent walls, floor, treasures, dangers, and the player itself. 
+
+## Why
+
+The main purpose of ledgame is to get an introduction and exercise on hardware by using Raspberry Pi 3. We wanted to make it as simple and user friendly as possible to give people the opportunity to make their own levels and gain an understanding of the game logic through that. 
+
+
 ## Requirements
 
 * Python 3.5 or newer
