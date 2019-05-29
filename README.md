@@ -3,7 +3,7 @@
 
 ### THE LABYRINTH OF DOOM
 
-Have a look at our [wiki](https://github.com/gentlemans-club/ledgame/wiki) for information about creating or editing levels.
+Have a look at our [wiki](https://github.com/gentlemans-club/ledgame/wiki) for information about creating or editing levels. We have also included a Jupyter [notebook](https://github.com/gentlemans-club/ledgame/blob/master/ledgame.ipynb) to be able to illustrate how the code works.
 
 **Developers:**
 
